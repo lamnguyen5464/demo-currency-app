@@ -1,5 +1,8 @@
-import {AppRegistry} from 'react-native';
+import { AppRegistry } from 'react-native';
 import App from './src/App';
-import {name as appName} from './app.json';
+import CurrencyScreen from './src/components/CurrencyScreen';
+import app from './app.json';
 
-AppRegistry.registerComponent(appName, () => App);
+AppRegistry.registerComponent(app.name, () => App);
+
+AppRegistry.registerComponent(app.screens.currency.name, () => CurrencyScreen);

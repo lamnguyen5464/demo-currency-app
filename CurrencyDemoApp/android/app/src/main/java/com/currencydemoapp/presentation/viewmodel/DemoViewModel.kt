@@ -4,24 +4,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.currencydemoapp.domain.usecase.CurrencyUseCase
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 
 class DemoViewModel(
     private val useCase: CurrencyUseCase,
     private val listDataSubject: ListDataSubject
 ) : ViewModel() {
-
-    init {
-        listDataSubject.on()
-            .onEach { list ->
-                list.forEach {
-                    println("@@" + it.id + it.code + it.name + it.type)
-                }
-            }
-            .launchIn(viewModelScope)
-    }
 
     fun clearAll() {
         viewModelScope.launch(Dispatchers.IO) {
@@ -33,6 +21,8 @@ class DemoViewModel(
     fun refresh() {
         viewModelScope.launch(Dispatchers.IO) {
             useCase.refresh()
+            val data = useCase.getAll()
+            listDataSubject.emit(data)
         }
     }
 

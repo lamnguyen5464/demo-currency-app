@@ -11,7 +11,7 @@ class ListDataSubject {
         state.emit(data)
     }
 
-    fun on(): StateFlow<List<CurrencyInfo>> {
+    fun observe(): StateFlow<List<CurrencyInfo>> {
         return state.asStateFlow()
     }
 }

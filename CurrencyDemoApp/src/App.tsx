@@ -6,10 +6,10 @@
  */
 
 import React from 'react';
-import CurrencyScreen from './CurrencyScreen';
+import { View } from 'react-native';
 
 const App: React.FC = () => {
-  return <CurrencyScreen />;
+  return <View />;
 };
 
 export default App;

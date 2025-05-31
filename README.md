@@ -1,233 +1,149 @@
-# Project Report: Leveraging Power Between Native Android and React Native App Development
+# Currency Demo App
 
-## Executive Summary
-- Brief overview of the project objectives
-- Key findings and recommendations
-- Comparison results summary
+## Installation & Setup
 
-## 1. Introduction
-### 1.1 Project Background
-- Problem statement
-- Research questions
-- Project scope and limitations
+### Development Environment
 
-### 1.2 Objectives
-- Compare performance metrics between Native Android and React Native
-- Analyze development efficiency and cost
-- Evaluate user experience differences
-- Assess maintenance and scalability factors
+- **Node.js**: v18.19.0
+- **Yarn**: 1.22.22
+- **React Native**: 0.79.2
+- **Android Studio**: Android Studio Meerkat | 2024.3.1 Patch 1
+- **JDK**: OpenJDK 17.0.4
+- **Gradle**: 8.10.2
 
-### 1.3 Methodology
-- Development approach
-- Testing frameworks used
-- Performance measurement criteria
-- Evaluation metrics
+### Project Setup
 
-## 2. Key Considerations and Assumptions
+1. **Clone Repository**
 
-### 2.1 Project Assumptions
-- Target Android API level and minimum SDK version
-- Device specifications used for testing (RAM, CPU, storage)
-- Network conditions for performance testing
-- User base characteristics and usage patterns
-- Development team skill level and experience
-
-### 2.2 Technical Considerations
-- App complexity level (simple, moderate, complex)
-- Required native device features (camera, GPS, sensors)
-- Third-party integrations and dependencies
-- Security and compliance requirements
-- Offline functionality requirements
-
-### 2.3 Business Considerations
-- Development timeline constraints
-- Budget limitations and resource allocation
-- Maintenance and long-term support plans
-- Market reach and platform coverage needs
-- Performance vs. development speed trade-offs
-
-### 2.4 Evaluation Constraints
-- Testing environment limitations
-- Measurement tool accuracy
-- Sample size considerations
-- Time-bound evaluation period
-- Hardware/software configuration standardization
-
-### 2.5 Success Criteria
-- Performance benchmarks to be achieved
-- User experience quality standards
-- Development efficiency metrics
-- Code quality and maintainability standards
-- Deployment and distribution requirements
-
-## 3. Literature Review
-### 3.1 Native Android Development
-- Advantages and disadvantages
-- Performance characteristics
-- Development ecosystem
-
-### 3.2 React Native Framework
-- Cross-platform capabilities
-- Performance considerations
-- Community and ecosystem
-
-### 3.3 Comparative Studies
-- Previous research findings
-- Industry benchmarks
-
-## 4. Technical Implementation
-### 4.1 Native Android App
-- Architecture overview
-- Key features implemented
-- Development tools and libraries used
-- Code structure and organization
-
-### 4.2 React Native App
-- Architecture overview
-- Key features implemented
-- Dependencies and third-party libraries
-- Cross-platform considerations
-
-### 4.3 Common Features Comparison
-- UI/UX implementation
-- Navigation systems
-- Data management
-- API integration
-- Device feature access
-
-## 5. Performance Analysis
-### 5.1 Application Startup Time
-- Cold start performance
-- Warm start performance
-- Memory usage during startup
-
-### 5.2 Runtime Performance
-- CPU usage analysis
-- Memory consumption patterns
-- Battery usage comparison
-- Network performance
-
-### 5.3 User Interface Performance
-- Frame rate analysis
-- Animation smoothness
-- Touch responsiveness
-- Scroll performance
-
-## 6. Development Experience Analysis
-### 6.1 Development Time
-- Initial setup time
-- Feature implementation time
-- Debugging and testing time
-
-### 6.2 Learning Curve
-- Developer onboarding
-- Required skill sets
-- Available documentation and resources
-
-### 6.3 Development Tools
-- IDE capabilities
-- Debugging tools
-- Profiling and optimization tools
-
-## 7. Maintenance and Scalability
-### 7.1 Code Maintainability
-- Code organization and structure
-- Testing capabilities
-- Refactoring ease
-
-### 7.2 Platform Updates
-- OS version compatibility
-- Framework update cycles
-- Breaking changes handling
-
-### 7.3 Team Scalability
-- Multi-developer collaboration
-- Code sharing possibilities
-- Knowledge transfer
-
-## 8. Results and Findings
-### 8.1 Performance Metrics Comparison
-- Quantitative results with charts/graphs
-- Statistical analysis
-- Performance bottlenecks identified
-
-### 8.2 Development Efficiency Analysis
-- Time-to-market comparison
-- Resource allocation analysis
-- Cost-benefit analysis
-
-### 8.3 User Experience Evaluation
-- User testing results
-- Accessibility compliance
-- Platform-specific UX differences
-
-## 9. Discussion
-### 9.1 Key Insights
-- Most significant differences found
-- Unexpected findings
-- Trade-offs identified
-
-### 9.2 Use Case Recommendations
-- When to choose Native Android
-- When to choose React Native
-- Hybrid approach considerations
-
-### 9.3 Limitations
-- Study limitations
-- Areas for future research
-
-## 10. Conclusion
-### 10.1 Summary of Findings
-- Main conclusions
-- Hypothesis validation
-
-### 10.2 Recommendations
-- Technology selection guidelines
-- Best practices identified
-- Future development strategies
-
-## 11. References
-- Academic papers
-- Technical documentation
-- Industry reports
-- Online resources
-
-## Appendices
-### Appendix A: Source Code Samples
-- Key implementation differences
-- Performance-critical code sections
-
-### Appendix B: Performance Test Results
-- Detailed benchmark data
-- Test environment specifications
-
-### Appendix C: User Testing Data
-- Survey results
-- User feedback compilation
-
-### Appendix D: Development Timeline
-- Project milestones
-- Time tracking data
-
-### Appendix E: Technical Specifications
-- Hardware/software requirements
-- Development environment setup
-- Deployment configurations
-
----
-
-## Project Structure
-```
-/TestRN
-├── android-native/          # Native Android implementation
-├── react-native-app/        # React Native implementation
-├── performance-tests/       # Benchmarking scripts and results
-├── documentation/          # Additional project documentation
-└── assets/                # Shared resources and media
+```bash
+git clone <repository-url>
+cd CurrencyDemoApp
 ```
 
-## Getting Started
-1. Clone the repository
-2. Follow setup instructions in respective app directories
-3. Run performance tests using provided scripts
-4. Review comparative analysis in documentation folder
+2. **Install Dependencies**
+
+```bash
+yarn
+```
+
+3. **Run Application**
+
+```bash
+yarn run android
+```
+
+4. **Run Test**
+
+```bash
+# for react-native
+yarn test
+
+# for android native
+cd android/
+./gradlew :app:testDebugUnitTest
+```
+
+## Requirements Checklist
+
+### ✅ Technical Requirements
+
+- [x] **Kotlin (native)**: Android native implemented in Kotlin
+- [x] **React Native**: UI of List and Search implemented in React Native with TypeScript
+- [x] **Google Recommended Architecture**: Clean Architecture
+- [x] **Dependency Injection**: Implemented for data sources, repository, use-cases, viewModel, etc.
+- [x] **Unit Testing**: Comprehensive tests without external mocking frameworks
+
+### ✅ Functional Requirements
+
+#### Core Functionality
+
+- [x] **CurrencyListFragment**: Reusable React Native screen and used as native fragment in android
+- [x] **DemoActivity**: Showcase activity with required functionality
+
+#### Five Required Buttons
+
+1. [x] **Clear Data**: Button to clear local database
+2. [x] **Insert Data**: Button to populate local database
+3. [x] **Currency List A**: Display Crypto currencies
+4. [x] **Currency List B**: Display Fiat currencies
+5. [x] **Display All**: Show all purchasable currencies from both lists
+
+#### Additional Features
+
+- [x] **Search Feature**: Implemented with multiple search strategies
+- [x] **Search Cancellation**: Clear button and proper state management
+- [x] **Empty View**: Proper empty state handling
+- [x] **Background Operations**: All IO operations off UI thread using coroutines
+
+### ✅ UI/UX Enhancements
+
+- [x] **Responsive Design**: Portrait and landscape layouts
+- [x] **Visual Feedback**: Loading states and user feedback
+- [x] **Search Optimization**: Debounced search for performance
+- [x] **Accessibility**: Proper content descriptions and labels
+
+## App Architecture Design Approach
+
+### Native-First Approach with React Native Integration
+
+In this demo, instead of develop demo-app completely in either native or react-native, the development approach **simulates a real-world scenario similar to **Crypto.com\***\*, where the majority of features and business logic are implemented natively for performance, security, and reliability. The goal is to leverage **React Native\*\* selectively to accelerate development and enhance productivity for specific features, such as the currency list and search UI.
+
+![Architecture Design](docs/architecture_design.png){ width="100%" }
+
+#### Use Case Simulation
+
+- **Core Modules**: The foundational `data/` and `domain/` modules are fully developed in native Android (Kotlin). These modules handle all business logic, data management, and domain rules, ensuring robust and optimized performance.
+- **Feature Integration**: For the currency list and search functionality, React Native is integrated on top of the existing native modules. This allows rapid UI development and iteration without rewriting core logic.
+- **Reuse of Native Logic**: The React Native layer communicates with the native modules via a custom bridge, reusing the already-developed repository and use-case logic for data retrieval, search, and concurrency management.
+- **Seamless User Experience**: The integration is designed so that users experience a seamless interface, with React Native components embedded as fragments within native activities.
+
+#### Benefits of This Approach
+
+- **Maximized Productivity**: React Native accelerates feature delivery for UI-heavy or frequently changing screens.
+- **Native Performance**: Critical business logic and data operations remain in the native layer, ensuring optimal performance and security.
+- **Code Reuse**: Existing native modules are reused, reducing duplication and maintenance overhead.
+- **Scalability**: This hybrid approach allows teams to incrementally adopt React Native where it adds the most value, without compromising the stability of the core app.
+
+This demo app showcases how React Native can be strategically integrated into a native Android codebase, like the sketch below:
+![App Overview](docs/demoapp_overview.png){ width="33%" }
+
+#### Component Breakdown
+
+##### 1. Native Android Layer
+
+- **DemoActivity**: Showcase activity with 5 functional buttons
+- **CurrencyBridgeModule**: Bridge for React Native communication
+- **Domain Layer**: Use case logics and Clean data access abstraction
+- **Data Sources**: Local and remote data management
+
+##### 2. React Native Layer
+
+- **CurrencyScreen**: Main UI component with search functionality
+- **useCurrencyData**: Custom hook for currency data management
+- **SearchStrategy Pattern**: Flexible search implementation
+  - `NameStartsWithSearchStrategy`
+  - `SpacePrefixedSearchStrategy`
+  - `SymbolStartsWithSearchStrategy`
+  - `CompositeSearchStrategy`
+
+## Screenshot
+
+![App1](docs/screen_01.png){ width="33%" }![App2](docs/screen_02.png){ width="33%" }![App3](docs/screen_03.png){ width="33%" }
+
+## Repository Structure
+
+```
+CurrencyDemoApp/
+├── android/                          # Native Android code
+│   └── app/src/main/java/            # Main Android source
+│       └── com/currencydemoapp/      # Package structure
+│           ├── data/                 # Data layer
+│           ├── domain/               # Domain layer
+│           └── presentation/         # Presentation layer
+├── src/                              # React Native source
+│   ├── components/                   # UI components
+│   ├── hooks/                        # Custom hooks
+│   ├── types/                        # TypeScript types
+│   └── utils/                        # Utility functions
+└── tests/                            # Unit tests
+```

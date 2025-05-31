@@ -1,4 +1,9 @@
 {
   "name": "CurrencyDemoApp",
-  "displayName": "CurrencyDemoApp"
+  "displayName": "CurrencyDemoApp",
+  "screens" : {
+    "currency": {
+      "name": "CurrencyScreen"
+    }
+  }
 }

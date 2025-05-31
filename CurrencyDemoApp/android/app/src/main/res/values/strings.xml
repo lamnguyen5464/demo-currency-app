@@ -2,8 +2,8 @@
     <string name="app_name">CurrencyDemoApp</string>
     <string name="display_all">Display all</string>
     <string name="actions">actions</string>
-    <string name="display_list_b">Display list B</string>
-    <string name="display_list_a">Display list A</string>
+    <string name="display_list_b">Display fiat</string>
+    <string name="display_list_a">Display crypto</string>
     <string name="insert_data">Insert data</string>
     <string name="clear">Clear</string>
 </resources>

@@ -65,5 +65,7 @@ class AppComponents(private val context: Context) {
 
     fun providesCurrencyUseCase(): CurrencyUseCase = currencyUseCase
 
+    fun providesListDataSubject() = listDataSubject
+
     fun providesDemoViewModelFactory() = demoViewModelFactory
 }

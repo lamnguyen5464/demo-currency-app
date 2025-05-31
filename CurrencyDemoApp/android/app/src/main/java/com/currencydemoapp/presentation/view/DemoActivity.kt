@@ -8,9 +8,11 @@ import androidx.lifecycle.ViewModelProvider
 import com.currencydemoapp.MainApplication
 import com.currencydemoapp.R
 import com.currencydemoapp.presentation.viewmodel.DemoViewModel
+import com.facebook.react.ReactFragment
+import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class DemoActivity : AppCompatActivity() {
+class DemoActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
 
     private lateinit var buttonSettings: FloatingActionButton
     private lateinit var buttonDisplayAll: FloatingActionButton
@@ -40,8 +42,13 @@ class DemoActivity : AppCompatActivity() {
         setupClickListeners()
 
         if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.container, DemoFragment.newInstance())
+            viewModel.refresh()
+            val reactNativeFragment = ReactFragment.Builder()
+                .setComponentName("CurrencyScreen")
+                .build()
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.react_currency_fragment, reactNativeFragment)
                 .commitNow()
         }
     }
@@ -52,6 +59,11 @@ class DemoActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this, factory)[DemoViewModel::class.java]
     }
 
+    private fun hideMenu() {
+        areOpenedMenu = false
+        handleMenuVisibility(false)
+    }
+
     private fun setupClickListeners() {
         buttonSettings.setOnClickListener {
             areOpenedMenu = !areOpenedMenu
@@ -59,18 +71,23 @@ class DemoActivity : AppCompatActivity() {
         }
         buttonAdd.setOnClickListener {
             viewModel.refresh()
+            hideMenu()
         }
         buttonClear.setOnClickListener {
             viewModel.clearAll()
+            hideMenu()
         }
         buttonDisplayListA.setOnClickListener {
             viewModel.useCryptoList()
+            hideMenu()
         }
         buttonDisplayListB.setOnClickListener {
             viewModel.useFiatList()
+            hideMenu()
         }
         buttonDisplayAll.setOnClickListener {
             viewModel.useAll()
+            hideMenu()
         }
     }
 
@@ -116,5 +133,9 @@ class DemoActivity : AppCompatActivity() {
         textDisplayListA = findViewById(R.id.text_display_list_a)
         textAdd = findViewById(R.id.text_add)
         textClear = findViewById(R.id.text_clear)
+    }
+
+    override fun invokeDefaultOnBackPressed() {
+        super.onBackPressed()
     }
 }
