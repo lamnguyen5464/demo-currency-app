@@ -143,7 +143,7 @@ CurrencyDemoApp/
 ├── src/                              # React Native source
 │   ├── components/                   # UI components
 │   ├── hooks/                        # Custom hooks
-│   ├── types/                        # TypeScript types
+│   ├── modules/                        # Native modules
 │   └── utils/                        # Utility functions
 └── tests/                            # Unit tests
 ```
